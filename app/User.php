@@ -29,6 +29,6 @@ class User extends Authenticatable
     ];
 
     public function notes(){
-      return $this-hasMany('App\Note');
+      return $this->hasMany('App\Note');
     }
 }
