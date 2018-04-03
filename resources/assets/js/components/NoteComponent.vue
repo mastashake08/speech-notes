@@ -40,33 +40,33 @@
           axios.get('/api/note').then(function(data){
             that.notes = data.data;
           });
-          that.speechRecog = new webkitSpeechRecognition();
-          that.speechRecog.continuous = true;
-          that.speechRecog.interimResults = true;
-          that.speechRecog.onstart = function() {
-            that.isRecording = true;
+          this.speechRecog = new webkitSpeechRecognition();
+          this.speechRecog.continuous = true;
+          this.speechRecog.interimResults = true;
+          this.speechRecog.onstart = function() {
+            this.isRecording = true;
           }
 
-          that.speechRecog.onresult = function(event) {
+          this.speechRecog.onresult = function(event) {
             that.interimResults = '';
             for (var i = event.resultIndex; i < event.results.length; ++i) {
              if (event.results[i].isFinal) {
-               if(event.results[i][0].transcript != undefined)
-               that.transcript += event.results[i][0].transcript;
+               if(event.results[i][0].transcript != 'undefined')
+               this.transcript += event.results[i][0].transcript;
              } else {
-               if(event.results[i][0].transcript != undefined)
+               if(event.results[i][0].transcript != 'undefined')
                that.interimTranscript += event.results[i][0].transcript;
              }
            }
 
           }
-          that.speechRecog.onerror = function(event) {
+          this.speechRecog.onerror = function(event) {
             console.log(event);
            }
 
-          that.speechRecog.onend = function() {
-            that.isRecording = false;
-            var data = {content: that.transcript};
+          this.speechRecog.onend = function() {
+            this.isRecording = false;
+            var data = {content: this.transcript};
             axios.post('/api/note',data).then(function(data){
               that.notes.push(data.data);
               that.transcipt = '';
