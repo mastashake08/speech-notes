@@ -40,7 +40,7 @@
           axios.get('/api/note').then(function(data){
             that.notes = data.data;
           });
-          that.speechRecog = SpeechRecognition || webkitSpeechRecognition;
+          that.speechRecog = new webkitSpeechRecognition();
           that.speechRecog.continuous = true;
           that.speechRecog.interimResults = true;
           that.speechRecog.onstart = function() {
