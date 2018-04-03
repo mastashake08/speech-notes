@@ -6,7 +6,7 @@
                     <div class="card-header">Note Dashboard</div>
 
                     <div class="card-body">
-                        <button v-if="isRecording == false"class="btn btn-sm" v-on:click="startRecording()">Record</button>
+                        <button v-if="isRecording == false"class="btn btn-sm btn-primary" v-on:click="startRecording()">Record</button>
                         <button v-else class="btn btn-sm btn-danger" v-on:click="stopRecording()">Stop</button>
                         <hr>
                         <ul>
@@ -38,7 +38,7 @@
           axios.get('/api/note').then(function(data){
             that.notes = data.data;
           });
-          that.speechRecog = new SpeechRecognition();
+          that.speechRecog = new webkitSpeechRecognition();
           that.speechRecog.continuous = true;
           that.speechRecog.interimResults = true;
           that.speechRecog.onstart = function() {
