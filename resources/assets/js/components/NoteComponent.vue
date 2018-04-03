@@ -8,6 +8,8 @@
                     <div class="card-body">
                         <button v-if="isRecording == false"class="btn btn-sm btn-primary" v-on:click="startRecording()">Record</button>
                         <button v-else class="btn btn-sm btn-danger" v-on:click="stopRecording()">Stop</button>
+                        <br>
+                        {{transcipt}}
                         <hr>
                         <ul>
                           <li v-for="note in notes">{{note.content}}</li>
@@ -66,6 +68,8 @@
             var data = {content: that.transcript};
             axios.post('/api/note',data).then(function(data){
               that.notes.push(data.data);
+              that.transcipt = '';
+              that.interimResults = '';
             });
           }
         },
