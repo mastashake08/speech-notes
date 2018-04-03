@@ -58,7 +58,7 @@
 
           }
           that.speechRecog.onerror = function(event) {
-            console.log(error);
+            console.log(event);
            }
 
           that.speechRecog.onend = function() {
