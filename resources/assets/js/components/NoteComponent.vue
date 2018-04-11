@@ -48,10 +48,9 @@
 
           this.speechRecog.onresult = function(event) {
             var last = event.results.length - 1;
-             if (event.results[last].isFinal) {
                if(event.results[last][0].transcript !== undefined)
                this.transcript += event.results[last][0].transcript;
-             }
+             
 
 
           }
