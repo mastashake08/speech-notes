@@ -47352,8 +47352,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var last = event.results.length - 1;
 
       console.log(event.results[last][0]);
-
-      this.transcript += ' ' + event.results[last][0].transcript;
+      if (event.results[last].isFinal) {
+        this.transcript += ' ' + event.results[last][0].transcript;
+      }
     };
     this.speechRecog.onerror = function (event) {
       console.log(event);
