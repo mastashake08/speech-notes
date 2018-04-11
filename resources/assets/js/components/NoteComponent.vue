@@ -41,7 +41,7 @@
             that.notes = data.data;
           });
           this.speechRecog = new webkitSpeechRecognition();
-          this.speechRecog.continuous = true;
+          this.speechRecog.continuous = false;
           this.speechRecog.interimResults = true;
           this.speechRecog.onstart = function() {
             that.isRecording = true;
