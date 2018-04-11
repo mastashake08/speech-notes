@@ -47351,11 +47351,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       that.interimResults = '';
       var last = event.results.length - 1;
 
-      if (this.transcript == '') {
-        this.transcript += event.results[last][0].transcript;
-      } else {
-        this.transcript += ' ' + event.results[last][0].transcript;
-      }
+      console.log(event.results[last][0]);
+
+      this.transcript += ' ' + event.results[last][0].transcript;
     };
     this.speechRecog.onerror = function (event) {
       console.log(event);

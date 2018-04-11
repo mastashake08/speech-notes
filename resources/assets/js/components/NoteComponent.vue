@@ -51,13 +51,10 @@
             that.interimResults = '';
             var last = event.results.length -1;
 
+            console.log(event.results[last][0]);
 
-               if(this.transcript == ''){
-               this.transcript += event.results[last][0].transcript;
-              }
-              else{
                this.transcript += ' '+event.results[last][0].transcript;
-             }
+
 
 
 
