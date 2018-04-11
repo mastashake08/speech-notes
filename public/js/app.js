@@ -47349,7 +47349,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     this.speechRecog.onresult = function (event) {
       that.interimResults = '';
-      for (var i = 0; i < event.results.length; ++i) {
+      for (var i = 1; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
           if (event.results[i][0].transcript !== 'undefined') this.transcript += ' ' + event.results[i][0].transcript;
         } else {
