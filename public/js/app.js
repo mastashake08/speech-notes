@@ -47350,14 +47350,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     this.speechRecog.onresult = function (event) {
       that.interimResults = '';
       for (var i = 1; i < event.results.length; ++i) {
-        if (event.results[i].isFinal) {
-          if (event.results[i][0].transcript !== 'undefined') if (this.transcript == '') {
-            this.transcript += event.results[i][0].transcript;
-          } else {
-            this.transcript += ' ' + event.results[i][0].transcript;
-          }
+
+        if (this.transcript == '') {
+          this.transcript += event.results[i][0].transcript;
         } else {
-          if (event.results[i][0].transcript !== 'undefined') that.interimTranscript += ' ' + event.results[i][0].transcript;
+          this.transcript += ' ' + event.results[i][0].transcript;
         }
       }
     };
