@@ -47349,13 +47349,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     this.speechRecog.onresult = function (event) {
       that.interimResults = '';
-      for (var i = 1; i < event.results.length; ++i) {
+      var last = event.results.length - 1;
 
-        if (this.transcript == '') {
-          this.transcript += event.results[i][0].transcript;
-        } else {
-          this.transcript += ' ' + event.results[i][0].transcript;
-        }
+      if (this.transcript == '') {
+        this.transcript += event.results[last][0].transcript;
+      } else {
+        this.transcript += ' ' + event.results[last][0].transcript;
       }
     };
     this.speechRecog.onerror = function (event) {
