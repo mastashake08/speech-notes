@@ -47341,7 +47341,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       that.notes = data.data;
     });
     this.speechRecog = new webkitSpeechRecognition();
-    this.speechRecog.continuous = true;
+    this.speechRecog.continuous = false;
     this.speechRecog.interimResults = true;
     this.speechRecog.onstart = function () {
       that.isRecording = true;
@@ -47351,7 +47351,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       that.interimResults = '';
       for (var i = 1; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
-          if (event.results[i][0].transcript !== 'undefined') this.transcript += ' ' + event.results[i][0].transcript;
+          if (event.results[i][0].transcript !== 'undefined') if (this.transcript == '') {
+            this.transcript += event.results[i][0].transcript;
+          } else {
+            this.transcript += ' ' + event.results[i][0].transcript;
+          }
         } else {
           if (event.results[i][0].transcript !== 'undefined') that.interimTranscript += ' ' + event.results[i][0].transcript;
         }
