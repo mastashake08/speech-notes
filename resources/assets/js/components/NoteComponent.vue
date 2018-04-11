@@ -49,7 +49,7 @@
 
           this.speechRecog.onresult = function(event) {
             that.interimResults = '';
-            for (var i = event.resultIndex; i < event.results.length; ++i) {
+            for (var i = 0; i < event.results.length; ++i) {
              if (event.results[i].isFinal) {
                if(event.results[i][0].transcript !== 'undefined')
                this.transcript += ' '+event.results[i][0].transcript;
