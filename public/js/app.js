@@ -47344,7 +47344,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     this.speechRecog.continuous = true;
     this.speechRecog.interimResults = true;
     this.speechRecog.onstart = function () {
-      this.isRecording = true;
+      that.isRecording = true;
     };
 
     this.speechRecog.onresult = function (event) {
