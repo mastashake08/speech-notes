@@ -52,10 +52,10 @@
             for (var i = event.resultIndex; i < event.results.length; ++i) {
              if (event.results[i].isFinal) {
                if(event.results[i][0].transcript !== 'undefined')
-               this.transcript += event.results[i][0].transcript;
+               this.transcript += ' '+event.results[i][0].transcript;
              } else {
                if(event.results[i][0].transcript !== 'undefined')
-               that.interimTranscript += event.results[i][0].transcript;
+               that.interimTranscript += ' '+event.results[i][0].transcript;
              }
            }
 
