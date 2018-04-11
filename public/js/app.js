@@ -47362,7 +47362,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     };
 
     this.speechRecog.onend = function () {
-      this.isRecording = false;
+      that.isRecording = false;
       var data = { content: this.transcript };
       axios.post('/api/note', data).then(function (data) {
         that.notes.push(data.data);
