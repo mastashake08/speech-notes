@@ -29,6 +29,7 @@
         data(){
           return{
             notes:[],
+            interimTranscript: '',
             transcipt: '',
             isRecording: false,
             speechRecog: {}
@@ -41,17 +42,22 @@
           });
           this.speechRecog = new webkitSpeechRecognition();
           this.speechRecog.continuous = true;
-          this.speechRecog.interimResults = false;
+          this.speechRecog.interimResults = true;
           this.speechRecog.onstart = function() {
             this.isRecording = true;
           }
 
           this.speechRecog.onresult = function(event) {
-            var last = event.results.length - 1;
-               if(event.results[last][0].transcript !== undefined)
-               this.transcript += event.results[last][0].transcript;
-             
-
+            that.interimResults = '';
+            for (var i = event.resultIndex; i < event.results.length; ++i) {
+             if (event.results[i].isFinal) {
+               if(event.results[i][0].transcript !== undefined)
+               this.transcript += event.results[i][0].transcript;
+             } else {
+               if(event.results[i][0].transcript !== undefined)
+               that.interimTranscript += event.results[i][0].transcript;
+             }
+           }
 
           }
           this.speechRecog.onerror = function(event) {
@@ -64,6 +70,7 @@
             axios.post('/api/note',data).then(function(data){
               that.notes.push(data.data);
               that.transcipt = '';
+              that.interimResults = '';
             });
           }
         },
