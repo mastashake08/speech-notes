@@ -47428,7 +47428,7 @@ var render = function() {
                 }
               },
               _vm._l(_vm.speechSynthesis.getVoices(), function(v) {
-                return _c("option", [
+                return _c("option", { attrs: { val: v.name } }, [
                   _vm._v(_vm._s(v.name) + " - (" + _vm._s(v.lang) + ")")
                 ])
               })
