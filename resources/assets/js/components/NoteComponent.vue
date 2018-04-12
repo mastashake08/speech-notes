@@ -9,7 +9,7 @@
                         <button v-if="isRecording == false"class="btn btn-sm btn-primary" v-on:click="startRecording()">Record</button>
                         <button v-else class="btn btn-sm btn-danger" v-on:click="stopRecording()">Stop</button>
                         <select class="form-control" v-model="voice">
-                          <option v-for="v in speechSynthesis.getVoices()" >{{v.name}}</option>
+                          <option v-for="v in speechSynthesis.getVoices()" >{{v}}</option>
                         </select>
                         <br>
                         {{transcipt}}
