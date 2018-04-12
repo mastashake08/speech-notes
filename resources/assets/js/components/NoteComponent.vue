@@ -12,7 +12,7 @@
                         {{transcipt}}
                         <hr>
                         <ul>
-                          <li v-for="note in notes">{{note.content}}</li>
+                          <li v-for="note in notes" v-on:click="sayNote(note)">{{note.content}}</li>
                         </ul>
                     </div>
                 </div>
@@ -32,7 +32,8 @@
             interimTranscript: '',
             transcipt: '',
             isRecording: false,
-            speechRecog: {}
+            speechRecog: {},
+            speechSynthesis: {}
           }
         },
         created(){
@@ -40,6 +41,7 @@
           axios.get('/api/note').then(function(data){
             that.notes = data.data;
           });
+          this.speechSynthesis = new webkitSpeechSynthesis();
           this.speechRecog = new webkitSpeechRecognition();
           this.speechRecog.continuous = false;
           this.speechRecog.interimResults = true;
@@ -81,6 +83,10 @@
           },
           stopRecording:function(){
             this.speechRecog.stop();
+          },
+          sayNote:function(note){
+            var msg = new SpeechSynthesisUtterance(note.content);
+            this.speechSynthesis.say(msg);
           }
 
         }
