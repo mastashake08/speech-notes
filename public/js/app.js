@@ -47411,7 +47411,7 @@ var render = function() {
                       expression: "voice"
                     }
                   },
-                  [_vm._v(_vm._s(v))]
+                  [_vm._v(_vm._s(v.name))]
                 )
               })
             ),
