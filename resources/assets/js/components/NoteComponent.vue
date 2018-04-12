@@ -15,7 +15,7 @@
                         {{transcipt}}
                         <hr>
                         <ul>
-                          <li v-for="note in notes" v-on:click="sayNote(note)">{{note.content}}</li>
+                          <li v-for="note in notes" v-on:click="sayNote(note)">{{note.content}} - ({{v.lang}})</li>
                         </ul>
                     </div>
                 </div>

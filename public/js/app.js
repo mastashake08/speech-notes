@@ -47452,7 +47452,11 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v(_vm._s(note.content))]
+                  [
+                    _vm._v(
+                      _vm._s(note.content) + " - (" + _vm._s(_vm.v.lang) + ")"
+                    )
+                  ]
                 )
               })
             )
