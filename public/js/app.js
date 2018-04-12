@@ -47342,7 +47342,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     sayNote: function sayNote(note) {
       var msg = new SpeechSynthesisUtterance(note.content);
-      this.speechSynthesis.say(msg);
+      this.speechSynthesis.speak(msg);
     }
 
   }

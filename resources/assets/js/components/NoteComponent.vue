@@ -86,7 +86,7 @@
           },
           sayNote:function(note){
             var msg = new SpeechSynthesisUtterance(note.content);
-            this.speechSynthesis.say(msg);
+            this.speechSynthesis.speak(msg);
           }
 
         }
