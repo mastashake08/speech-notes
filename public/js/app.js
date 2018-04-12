@@ -47281,6 +47281,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -47293,7 +47296,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       transcipt: '',
       isRecording: false,
       speechRecog: {},
-      speechSynthesis: {}
+      speechSynthesis: {},
+      voice: null
     };
   },
   created: function created() {
@@ -47342,6 +47346,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     sayNote: function sayNote(note) {
       var msg = new SpeechSynthesisUtterance(note.content);
+      if (this.voice != null) {
+        msg.voice = this.voice;
+      }
       this.speechSynthesis.speak(msg);
     }
 
@@ -47388,6 +47395,26 @@ var render = function() {
                   },
                   [_vm._v("Stop")]
                 ),
+            _vm._v(" "),
+            _c(
+              "select",
+              { staticClass: "form-control" },
+              _vm._l(_vm.speechSynthesis.getVoices(), function(v) {
+                return _c(
+                  "option",
+                  {
+                    model: {
+                      value: _vm.voice,
+                      callback: function($$v) {
+                        _vm.voice = $$v
+                      },
+                      expression: "voice"
+                    }
+                  },
+                  [_vm._v(_vm._s(v))]
+                )
+              })
+            ),
             _vm._v(" "),
             _c("br"),
             _vm._v(

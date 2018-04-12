@@ -8,6 +8,9 @@
                     <div class="card-body">
                         <button v-if="isRecording == false"class="btn btn-sm btn-primary" v-on:click="startRecording()">Record</button>
                         <button v-else class="btn btn-sm btn-danger" v-on:click="stopRecording()">Stop</button>
+                        <select class="form-control">
+                          <option v-for="v in speechSynthesis.getVoices()" v-model="voice">{{v}}</option>
+                        </select>
                         <br>
                         {{transcipt}}
                         <hr>
@@ -33,7 +36,8 @@
             transcipt: '',
             isRecording: false,
             speechRecog: {},
-            speechSynthesis: {}
+            speechSynthesis: {},
+            voice: null
           }
         },
         created(){
@@ -86,6 +90,9 @@
           },
           sayNote:function(note){
             var msg = new SpeechSynthesisUtterance(note.content);
+            if(this.voice != null){
+              msg.voice = this.voice;
+            }
             this.speechSynthesis.speak(msg);
           }
 
