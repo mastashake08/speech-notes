@@ -47292,10 +47292,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -47454,53 +47450,45 @@ var render = function() {
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("div", { staticClass: "col-md-6" }, [
-                _c("label", { attrs: { for: "rate" } }, [_vm._v("Rate")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.rate,
-                      expression: "rate"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "range", id: "rate", min: "0.1", max: "10" },
-                  domProps: { value: _vm.rate },
-                  on: {
-                    __r: function($event) {
-                      _vm.rate = $event.target.value
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c("label", { attrs: { for: "pitch" } }, [_vm._v("Pitch")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.pitch,
-                      expression: "pitch"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "range", id: "pitch", min: "0", max: "2" },
-                  domProps: { value: _vm.pitch },
-                  on: {
-                    __r: function($event) {
-                      _vm.pitch = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
+            _c("label", { attrs: { for: "rate" } }, [_vm._v("Rate")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.rate,
+                  expression: "rate"
+                }
+              ],
+              attrs: { type: "range", id: "rate", min: "0.1", max: "10" },
+              domProps: { value: _vm.rate },
+              on: {
+                __r: function($event) {
+                  _vm.rate = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "pitch" } }, [_vm._v("Pitch")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.pitch,
+                  expression: "pitch"
+                }
+              ],
+              attrs: { type: "range", id: "pitch", min: "0", max: "2" },
+              domProps: { value: _vm.pitch },
+              on: {
+                __r: function($event) {
+                  _vm.pitch = $event.target.value
+                }
+              }
+            }),
             _vm._v(" "),
             _c("br"),
             _vm._v(
