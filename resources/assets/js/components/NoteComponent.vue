@@ -51,7 +51,7 @@
             that.interimResults = '';
             var last = event.results.length -1;
 
-            console.log(event.results[last][0]);
+            
               if (event.results[last].isFinal) {
                this.transcript = ' '+event.results[last][0].transcript;
              }
