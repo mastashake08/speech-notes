@@ -8,9 +8,21 @@
                     <div class="card-body">
                         <button v-if="isRecording == false"class="btn btn-sm btn-primary" v-on:click="startRecording()">Record</button>
                         <button v-else class="btn btn-sm btn-danger" v-on:click="stopRecording()">Stop</button>
+                        <br>
                         <select class="form-control" v-model="voice">
                           <option v-for="v in speechSynthesis.getVoices()" v-bind:value="v.name">{{v.name}} - ({{v.lang}})</option>
                         </select>
+                        <br>
+                        <div class="form-group">
+                          <div class="col-md-6">
+                            <label for="rate">Rate</label>
+                            <input type="range" id="rate" class="form-control" min="0.1" max="10"  v-model="rate">
+                          </div>
+                            <div class="col-md-6">
+                              <label for="pitch">Pitch</label>
+                              <input type="range" id="pitch" class="form-control" min="0" max="2"  v-model="pitch">
+                            </div>
+                        </div>
                         <br>
                         {{transcipt}}
                         <hr>
@@ -37,7 +49,9 @@
             isRecording: false,
             speechRecog: {},
             speechSynthesis: {},
-            voice: null
+            voice: null,
+            rate: 2,
+            pitch: 1
           }
         },
         created(){
