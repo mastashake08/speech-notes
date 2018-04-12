@@ -47347,8 +47347,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     sayNote: function sayNote(note) {
       var msg = new SpeechSynthesisUtterance(note.content);
       if (this.voice != null) {
+        var that = this;
         msg.voice = speechSynthesis.getVoices().filter(function (voice) {
-          return voice.name == this.voice;
+          return voice.name == that.voice;
         })[0];
       }
       this.speechSynthesis.speak(msg);

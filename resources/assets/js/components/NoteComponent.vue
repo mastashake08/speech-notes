@@ -91,7 +91,8 @@
           sayNote:function(note){
             var msg = new SpeechSynthesisUtterance(note.content);
             if(this.voice != null){
-              msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == this.voice; })[0];
+              var that = this;
+              msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == that.voice; })[0];
             }
             this.speechSynthesis.speak(msg);
           }
