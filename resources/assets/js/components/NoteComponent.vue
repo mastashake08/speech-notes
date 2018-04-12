@@ -13,12 +13,15 @@
                           <option v-for="v in speechSynthesis.getVoices()" v-bind:value="v.name">{{v.name}} - ({{v.lang}})</option>
                         </select>
                         <br>
+                        <div class="slidecontainer">
                             <label for="rate">Rate</label>
-                            <input  type="range" id="rate"  min="0.1" max="10"  v-model="rate">
-
+                            <input class="slider" type="range" id="rate"  min="0.1" max="10"  v-model="rate">
+                          </div>
+                          <br>
+                          <div class="slidecontainer">
                               <label for="pitch">Pitch</label>
-                              <input  type="range" id="pitch"  min="0" max="2"  v-model="pitch">
-
+                              <input class="slider" type="range" id="pitch"  min="0" max="2"  v-model="pitch">
+                            </div>
                         <br>
                         {{transcipt}}
                         <hr>
