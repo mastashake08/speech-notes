@@ -108,6 +108,7 @@
             }
             msg.pitch = this.pitch;
             msg.rate = this.rate;
+            console.log(msg);
             this.speechSynthesis.speak(msg);
           }
 

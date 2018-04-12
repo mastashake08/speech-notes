@@ -47366,6 +47366,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
       msg.pitch = this.pitch;
       msg.rate = this.rate;
+      console.log(msg);
       this.speechSynthesis.speak(msg);
     }
 
