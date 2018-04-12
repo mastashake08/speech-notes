@@ -47347,7 +47347,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     sayNote: function sayNote(note) {
       var msg = new SpeechSynthesisUtterance(note.content);
       if (this.voice != null) {
-        msg.voice = this.voice;
+        msg.voice = speechSynthesis.getVoices().filter(function (voice) {
+          return voice.name == this.voice;
+        })[0];
       }
       this.speechSynthesis.speak(msg);
     }
@@ -47425,7 +47427,7 @@ var render = function() {
                 }
               },
               _vm._l(_vm.speechSynthesis.getVoices(), function(v) {
-                return _c("option", [_vm._v(_vm._s(v))])
+                return _c("option", [_vm._v(_vm._s(v.name))])
               })
             ),
             _vm._v(" "),
