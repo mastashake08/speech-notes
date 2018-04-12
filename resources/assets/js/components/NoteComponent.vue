@@ -54,7 +54,7 @@
 
               if (event.results[last].isFinal) {
                this.transcript = event.results[last][0].transcript;
-               this.transcript.charAt(0).toUpperCase();
+               this.transcript = this.transcript.charAt(0).toUpperCase();
              }
 
 
