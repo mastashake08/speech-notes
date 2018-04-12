@@ -47295,6 +47295,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -47319,7 +47320,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       that.notes = data.data;
     });
     this.speechSynthesis = window.speechSynthesis;
-    this.speechRecog = new webkitSpeechRecognition();
+    this.speechRecog = new webkitSpeechRecognition() || new SpeechRecognition();
     this.speechRecog.continuous = false;
     this.speechRecog.interimResults = true;
     this.speechRecog.onstart = function () {
@@ -47415,6 +47416,8 @@ var render = function() {
                   },
                   [_vm._v("Stop")]
                 ),
+            _vm._v(" "),
+            _c("br"),
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),

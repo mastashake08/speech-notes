@@ -9,6 +9,7 @@
                         <button v-if="isRecording == false"class="btn btn-sm btn-primary" v-on:click="startRecording()">Record</button>
                         <button v-else class="btn btn-sm btn-danger" v-on:click="stopRecording()">Stop</button>
                         <br>
+                        <br>
                         <select class="form-control" v-model="voice">
                           <option v-for="v in speechSynthesis.getVoices()" v-bind:value="v.name">{{v.name}} - ({{v.lang}})</option>
                         </select>
@@ -59,7 +60,7 @@
             that.notes = data.data;
           });
           this.speechSynthesis = window.speechSynthesis;
-          this.speechRecog = new webkitSpeechRecognition();
+          this.speechRecog = new webkitSpeechRecognition() || new SpeechRecognition();
           this.speechRecog.continuous = false;
           this.speechRecog.interimResults = true;
           this.speechRecog.onstart = function() {
