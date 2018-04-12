@@ -47398,21 +47398,34 @@ var render = function() {
             _vm._v(" "),
             _c(
               "select",
-              { staticClass: "form-control" },
-              _vm._l(_vm.speechSynthesis.getVoices(), function(v) {
-                return _c(
-                  "option",
+              {
+                directives: [
                   {
-                    model: {
-                      value: _vm.voice,
-                      callback: function($$v) {
-                        _vm.voice = $$v
-                      },
-                      expression: "voice"
-                    }
-                  },
-                  [_vm._v(_vm._s(v.name))]
-                )
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.voice,
+                    expression: "voice"
+                  }
+                ],
+                staticClass: "form-control",
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.voice = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              _vm._l(_vm.speechSynthesis.getVoices(), function(v) {
+                return _c("option", [_vm._v(_vm._s(v.name))])
               })
             ),
             _vm._v(" "),
