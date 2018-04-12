@@ -47301,7 +47301,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     axios.get('/api/note').then(function (data) {
       that.notes = data.data;
     });
-    this.speechSynthesis = new webkitSpeechSynthesis();
+    this.speechSynthesis = window.speechSynthesis;
     this.speechRecog = new webkitSpeechRecognition();
     this.speechRecog.continuous = false;
     this.speechRecog.interimResults = true;
