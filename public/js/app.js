@@ -47366,6 +47366,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           return voice.name == that.voice;
         })[0];
       }
+      msg.pitch = this.pitch;
+      msg.rate = this.rate;
       this.speechSynthesis.speak(msg);
     }
 

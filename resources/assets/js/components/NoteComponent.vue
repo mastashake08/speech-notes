@@ -108,6 +108,8 @@
               var that = this;
               msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == that.voice; })[0];
             }
+            msg.pitch = this.pitch;
+            msg.rate = this.rate;
             this.speechSynthesis.speak(msg);
           }
 
