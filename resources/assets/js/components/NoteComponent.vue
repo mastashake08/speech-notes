@@ -105,9 +105,10 @@
             if(this.voice != null){
               var that = this;
               msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == that.voice; })[0];
+              msg.pitch = this.pitch;
+              msg.rate = this.rate;
             }
-            msg.pitch = this.pitch;
-            msg.rate = this.rate;
+
             console.log(msg);
             this.speechSynthesis.speak(msg);
           }
