@@ -47428,7 +47428,9 @@ var render = function() {
                 }
               },
               _vm._l(_vm.speechSynthesis.getVoices(), function(v) {
-                return _c("option", [_vm._v(_vm._s(v.name))])
+                return _c("option", [
+                  _vm._v(_vm._s(v.name) + " - (" + _vm._s(v.lang) + ")")
+                ])
               })
             ),
             _vm._v(" "),
@@ -47452,11 +47454,7 @@ var render = function() {
                       }
                     }
                   },
-                  [
-                    _vm._v(
-                      _vm._s(note.content) + " - (" + _vm._s(_vm.v.lang) + ")"
-                    )
-                  ]
+                  [_vm._v(_vm._s(note.content) + " ")]
                 )
               })
             )
