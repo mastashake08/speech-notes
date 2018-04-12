@@ -47320,7 +47320,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       that.notes = data.data;
     });
     this.speechSynthesis = window.speechSynthesis;
-    this.speechRecog = new SpeechRecognition();
+    this.speechRecog = new webkitSpeechRecognition();
     this.speechRecog.continuous = false;
     this.speechRecog.interimResults = true;
     this.speechRecog.onstart = function () {
